@@ -18,6 +18,33 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+  //base case: if input list is empty
+  if (in == nullptr){
+    return;
+  }
+
+  //save next pointer and current Node
+  Node* next = in->next;
+  Node*current = in;
+
+  //remove current node from input list
+  in = next;
+  current->next = nullptr;
+
+  //current value is odd
+  if(current->value % 2 ==1){
+    //add to front of odds list
+    current->next = odds;
+    odds = current;
+  }
+  //current value is even
+  else{
+    //add to front of evens list
+    current->next = evens;
+    evens = current;
+  }
+  //recursive call the rest of the list
+  split(in, odds, evens);
 }
 
 /* If you needed a helper function, write it here */

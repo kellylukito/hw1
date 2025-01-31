@@ -18,5 +18,7 @@ struct Node
 };
 
 void split(Node*& in, Node*& odds, Node*& evens);
+void printList(Node*head, const char*label);
+void deleteList(Node*head);
 
 #endif
